@@ -49,3 +49,30 @@ class Solution {
         return resultArray;
     }
 }
+
+
+// 2nd Solution based on some hints from AI. 
+// Using Hashmpap, the solution can be found at the complexity O(n) 
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] resultArray = new int[2]; 
+        int len = nums.length; 
+        boolean found = false; 
+        HashMap<Integer,Integer> map = new HashMap<>();
+        // Only one for loop 
+        for(int i = 0; i< len; i++) {
+        	int complement = target - nums[i]; 
+        	
+        	if(map.containsKey(complement)) {
+        		resultArray[0] = i;
+        		resultArray[1] = map.get(complement);
+        		break;
+        	}else {
+        		map.put(nums[i], i);
+        	}
+        }
+        System.out.println(resultArray[0] +", "+  resultArray[1]);
+        return resultArray;
+    }
+}
